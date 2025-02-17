@@ -1,0 +1,135 @@
+.main{
+    position: relative;
+}
+
+.main ul {
+  list-style-type: none;
+  padding-left: 0;
+  overflow-y: scroll;
+  height: 400px;
+  margin-bottom: 0;
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+.main ul::-webkit-scrollbar {
+  width: 0;
+}
+.main ul li {
+  border-bottom: 1px solid rgb(229, 231, 235);
+  padding: 8px;
+}
+.main ul li:hover {
+  background-color: #0D1A3F;
+  border-radius: 0.375rem;
+}
+.main ul li a {
+  display: block;
+  padding-left: 8px;
+  height: 16px;
+  line-height: 15px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.main ul li:hover .left__item {
+  color: #fff;
+}
+.subdropdown:hover .child__item{
+    color: #fff;
+}
+
+.main ul li:hover .parent__svg{
+    fill: #fff;
+}
+
+.parent__item {
+  display: grid;
+  grid-template-columns: auto 20px;
+}
+.main ul li a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 14px;
+  line-height: 30px;
+  color: #191919;
+  cursor: pointer;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  left: 204px;
+  width: 240px;
+  top: 0;
+  background-color: white;
+  min-width: 160px;
+  z-index: 5;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.childdropdownContent {
+  display: none;
+  position: absolute;
+  left: 240px;
+  top: 0;
+  background-color: white;
+  min-width: 220px;
+  z-index: 5;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.left__item{
+    color: black;
+}
+
+.dropdownContent a {
+  color: black;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+  line-height: 20px;
+}
+
+.dropdownContent a:hover {
+  /* background-color: #ddd; */
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.subdropdown:hover .childdropdownContent {
+  display: block;
+}
+
+/* .dropdownContent:hover .childdropdownContent {
+    display: block;
+    box-shadow: var(--dk-box-shadow);
+} */
+
+.dropdown {
+  overflow: hidden;
+}
+
+.subdropdown {
+  overflow: hidden;
+}
+
+.subsubdropdown {
+  overflow: hidden;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.displayMain {
+  display: none;
+}
+
+.display {
+  display: none;
+}
+

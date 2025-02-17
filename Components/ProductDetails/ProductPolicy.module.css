@@ -1,0 +1,24 @@
+.main h3 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #737373;
+}
+.main h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #737373;
+}
+.main p {
+  margin-bottom: 2px;
+  color: #8f8f8f;
+  font-weight: 700;
+}
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.viewShop:hover {
+  border: 2px solid rgb(192, 119, 11);
+}
