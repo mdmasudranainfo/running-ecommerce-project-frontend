@@ -15,7 +15,7 @@ import { useStatus } from "@/context/contextStatus";
 import ReactPlayer from "react-player";
 
 const ProductDetails = ({ data }) => {
-  const { shopName, Logo } = useStatus();
+  const { shopName, Logo, Favicon } = useStatus();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("description");
 
@@ -267,7 +267,7 @@ const ProductDetails = ({ data }) => {
       <Head>
         <title>{shopName}/product-details</title>
         <meta name="description" content={shopName} />
-        <link rel="icon" href={`${hostname}/${Logo}`} />
+        <link rel="icon" href={`${hostname}/${Favicon}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap"

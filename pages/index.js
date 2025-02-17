@@ -29,6 +29,7 @@ export default function Home() {
   const {
     shopName,
     Logo,
+    Favicon,
     loading,
     setLoading,
     setPopUpImage,
@@ -137,7 +138,7 @@ export default function Home() {
         <title>{shopName}</title>
         <meta name="description" content={shopName} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href={`${hostname}/${Logo}`} />
+        <link rel="icon" href={`${hostname}/${Favicon}`} />
         <link
           href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap"
           rel="stylesheet"

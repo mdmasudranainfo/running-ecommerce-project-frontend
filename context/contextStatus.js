@@ -84,6 +84,7 @@ function StatusProvider({ children }) {
     <ContextStatusProvider
       value={{
         Logo: data?.logoImg,
+        Favicon: data?.favicon,
         Email: data?.email,
         shopName: data?.shopName,
         isCartOpen,
