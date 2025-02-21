@@ -793,15 +793,24 @@ const Navbar = () => {
 
       <div className="max-w-7xl  px-5 hidden md:block  lg:block xl:block sxl:block  xls:max-w-[25rem] xs:max-w-[20rem] md:max-w-[62rem] xxl:max-w-[110rem] mx-auto pt-3">
         <div className="flex gap-4">
-          <Link className="group flex items-center  gap-1 " href={`/`}>
+          <Link
+            className="group flex items-center  gap-1 text-black "
+            href={`/`}
+          >
             <IoMdHome className="group-hover:text-primary text-xl" />
             <p className="mt-1">Home</p>
           </Link>
-          <Link className="group flex items-center  gap-1 " href={`/`}>
+          <Link
+            className="group flex items-center  gap-1 text-black "
+            href={`/`}
+          >
             <MdOutlineCategory className="group-hover:text-primary text-xl" />
             <p className="mt-1">Category</p>
           </Link>
-          <Link className="group flex items-center  gap-1 " href={`/`}>
+          <Link
+            className="group flex items-center  gap-1 text-black "
+            href={`/`}
+          >
             <CiShop className="group-hover:text-primary text-xl" />
             <p className="mt-1">Shop</p>
           </Link>

@@ -112,7 +112,7 @@ const Footer = () => {
       </div>
 
       <div className="bg-secondary w-full py-20 xls:hidden sm:hidden xms:hidden xs:hidden">
-        <div className="grid grid-cols-4 sm:grid-cols-3 xls:grid-cols-1 xms:grid-cols-1 xs:grid-cols-1 gap-x-10 xls:gap-4 xms:gap-4 xs:gap-4  max-w-[85rem] md:max-w-[62rem] xls:max-w-[22rem] xms:max-w-[20rem] xs:max-w-[18rem] mx-auto">
+        <div className="grid grid-cols-3 justify-items-center sm:grid-cols-3 xls:grid-cols-1 xms:grid-cols-1 xs:grid-cols-1 gap-x-10 xls:gap-4 xms:gap-4 xs:gap-4  max-w-[85rem] md:max-w-[62rem] xls:max-w-[22rem] xms:max-w-[20rem] xs:max-w-[18rem] mx-auto">
           {loading ? (
             <SkeletonTheme
               baseColor="#fff"
@@ -229,7 +229,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="pl-[0px] sm:pl-[45px] sm:pt-[10px] ">
+          {/* <div className="pl-[0px] sm:pl-[45px] sm:pt-[10px] ">
             <p className="text-white text-xl tracking-wider   font-semibold">
               Get {shopName} App
             </p>
@@ -249,7 +249,7 @@ const Footer = () => {
                 className="cursor-pointer"
               />
             </div>
-          </div>
+          </div> */}
 
           <div>{/* <MessengerCustomerChat pageId="103424579277922" /> */}</div>
         </div>

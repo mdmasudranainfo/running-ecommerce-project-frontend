@@ -293,7 +293,7 @@ const Checkout = () => {
       >
         <div className="border-2 rounded-xl  max-w-7xl md:max-w-[62rem]  sm:max-w-[46rem] xls:max-w-[25rem] xms:max-w-[22rem] xs:max-w-[19rem] mx-auto">
           <p className="font-semibold text-center pt-5 mb-5  sm:text-md text-[20px]">
-            <span className=" border-dashed   border-b-2 p-4 ">
+            <span className=" border-dashed   border-b-2 p-4 text-black ">
               অর্ডার টি সম্পন্ন করতে আপনার নাম, মোবাইল নাম্বার ও ঠিকানা নিচে
               লিখুন
             </span>

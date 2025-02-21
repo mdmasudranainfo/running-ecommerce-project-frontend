@@ -27,13 +27,13 @@ const AddressSection = ({
 
       <div className="flex items-center pt-2">
         <div className="w-full">
-          <label htmlFor={namePlaceHolder} className="mb-1 block">
+          <label htmlFor={namePlaceHolder} className="mb-1 block text-black">
             {namePlaceHolder}
             <span style={{ color: "red" }}>*</span>
           </label>
           <input
             id={namePlaceHolder}
-            className="w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
+            className="bg-white w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
             value={name}
             placeholder={namePlaceHolder}
             // placeholder="Your name ..."
@@ -44,13 +44,13 @@ const AddressSection = ({
 
       <div className="flex items-center pt-4">
         <div className="w-full">
-          <label htmlFor={mobilePlaceHolder} className="mb-1 block">
+          <label htmlFor={mobilePlaceHolder} className="mb-1 block text-black">
             {mobilePlaceHolder}
             <span style={{ color: "red" }}>*</span>
           </label>
           <input
             id={mobilePlaceHolder}
-            className="w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
+            className="bg-white w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
             value={phone}
             placeholder={mobilePlaceHolder}
             // placeholder="Phone number..."
@@ -60,13 +60,13 @@ const AddressSection = ({
       </div>
       <div className="flex items-center pt-4">
         <div className="w-full">
-          <label htmlFor={addressPlaceHolder} className="mb-1 block">
+          <label htmlFor={addressPlaceHolder} className="mb-1 block text-black">
             {addressPlaceHolder}
             <span style={{ color: "red" }}>*</span>
           </label>
           <input
             id={addressPlaceHolder}
-            className="w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
+            className="bg-white w-full pl-2 h-[35px] outline-none text-sm rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary"
             placeholder={addressPlaceHolder}
             value={address}
             onChange={(event) => setAddress(event.target.value)}
@@ -76,7 +76,7 @@ const AddressSection = ({
 
       <div className="w-full pt-4">
         <textarea
-          className="w-full pl-2 pt-2 outline-none text-sm text-white rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary focus:shadow-outline-none resize-none h-12"
+          className="bg-white w-full pl-2 pt-2 outline-none text-sm text-white rounded-md placeholder:text-base border border-gray-400 transition-all focus:border-primary focus:shadow-outline-none resize-none h-12"
           placeholder={customerNotesPlaceholder}
           // placeholder="Enter address....."
           value={customerNotes}
@@ -92,12 +92,17 @@ const AddressSection = ({
         </p>
         <div className="w-full">
           <select
-            className="w-full p-2 rounded-md border border-gray-300 focus:ring-indigo-700 focus:outline-none"
+            className="bg-white text-black w-full p-2 rounded-md border border-gray-300 focus:ring-indigo-700 focus:outline-none"
             value={deliveryOption}
             onChange={(e) => setDeliveryOption(e.target.value)}
           >
-            <option value="inside"> ঢাকা সিটির ভিতরে</option>
-            <option value="outside">ঢাকা সিটির বাহিরে</option>
+            <option className="" value="inside">
+              {" "}
+              ঢাকা সিটির ভিতরে
+            </option>
+            <option className="" value="outside">
+              ঢাকা সিটির বাহিরে
+            </option>
           </select>
         </div>
       </div>
