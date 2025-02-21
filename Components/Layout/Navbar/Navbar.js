@@ -195,16 +195,17 @@ const Navbar = () => {
 
                   {flag && (
                     <div
-                      className="bg-white xxl:w-full xl:w-full lg:w-full md:w-full sm:w-full mx-auto h-[400px] xls:w-[290px] xms:w-[280px] xs:w-[287px] absolute z-20 xs:left-[-78px] overflow-y-auto top-[35px] xs:top-[33px] shadow-md drop-shadow-md"
+                      className="rounded-b-lg bg-white xxl:w-full xl:w-full lg:w-full md:w-full sm:w-full mx-auto h-[400px] xls:w-[290px] xms:w-[280px] xs:w-[287px] absolute z-20 xs:left-[-78px] overflow-y-auto top-[35px] xs:top-[33px] shadow-md drop-shadow-md"
                       ref={wrapperRef}
                     >
                       {!searchKey && (
                         <div>
-                          <div className="h-40 w-40 mx-auto mt-6">
+                          {/* <div className="h-40 w-40 mx-auto mt-6">
                             <img src="/image/coding.png" />
-                          </div>
+                          </div> */}
                           <p className="text-gray-400 text-center pt-4">
-                            Start typing to search
+                            {/* Start typing to search */}
+                            Search for products
                           </p>
                         </div>
                       )}
@@ -212,7 +213,7 @@ const Navbar = () => {
                   )}
                   {searchData?.length ? (
                     <div
-                      className="bg-white xxl:w-full xl:w-full lg:w-full md:w-full sm:w-full mx-auto h-[400px] xls:w-[290px] xms:w-[280px] xs:w-[287px] absolute z-20 xs:left-[-78px] xs:top-[33px] overflow-y-auto"
+                      className="bg-white xxl:w-full xl:w-full lg:w-full md:w-full sm:w-full mx-auto h-[400px] xls:w-[290px] xms:w-[280px] xs:w-[287px] absolute z-20 xs:left-[-78px] xs:top-[33px] overflow-y-auto "
                       ref={wrapperRef}
                     >
                       {searchData?.map((item, index) => (
@@ -223,7 +224,7 @@ const Navbar = () => {
                               setsearchKey("");
                             }}
                             key={index}
-                            className="m-2 flex items-center justify-start border-[1px] cursor-pointer hover:border-primary"
+                            className="m-2 flex items-center justify-start border-[1px] cursor-pointer hover:border-primary rounded-lg overflow-hidden"
                           >
                             <div className="w-[70px] h-[70px] relative mr-10">
                               <Image
@@ -241,7 +242,6 @@ const Navbar = () => {
                                   <>
                                     {item?.isVariant == false ? (
                                       <>
-                                        {" "}
                                         <p className="text-[14px] xs:text-xs xms:text-xs font-semibold text-red-600 text-center">
                                           ৳ {item?.nonVariation?.flashPrice}
                                         </p>{" "}
@@ -332,29 +332,24 @@ const Navbar = () => {
 
             {/* trak order button */}
 
-             <div className="flex items-center space-x-2 font-medium text-lg text-black">
+            <div className="flex items-center space-x-2 font-medium text-lg text-black">
               <div>
-          
-              <svg
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              >
-              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-              </svg>
-
+                <svg
+                  className="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                </svg>
               </div>
               <div>
-                <Link href={``} >
+                <Link href={``}>
                   <p className="text-sm">Track Order</p>
                 </Link>
-                
-               
               </div>
             </div>
 
-            
             {/* <div className="flex items-center space-x-2 font-medium text-lg text-black">
               <div>
             
