@@ -6,7 +6,7 @@ module.exports = {
       `localhost`,
       "api.amarponno.com",
       "46.250.224.106",
-      "lazma.com",
+      "api.khidmahghor.com",
     ],
     // domains: [`api-lazma.b2gsoft.xyz`],
 

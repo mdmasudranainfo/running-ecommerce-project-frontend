@@ -37,9 +37,8 @@ const ProductDetails = ({ data }) => {
   const [AllAttrList, setAllAttrList] = useState([]);
 
   const [showingVariantList, setShowingVariantList] = useState([]);
-  
+
   const [selectedVariation, setSelectedVariation] = useState(null);
-  
 
   useEffect(() => {
     if (data && data?.isVariant && data.variations.length > 0) {
@@ -78,8 +77,8 @@ const ProductDetails = ({ data }) => {
       data?.variations[0].attributeOpts?.forEach((opt, index) => {
         if (opt.attributeName !== primaryAttr) {
           let attrValues = [];
-          data.variations.forEach(variant => {
-            variant.attributeOpts.forEach(attrOpt => {
+          data.variations.forEach((variant) => {
+            variant.attributeOpts.forEach((attrOpt) => {
               if (attrOpt.attributeName === opt.attributeName) {
                 attrValues.push(attrOpt.name);
               }

@@ -26,7 +26,7 @@ const DetailSection = ({
   handleAttribute,
   imageSelect,
   description,
-  short_description
+  short_description,
 }) => {
   const {
     setPromoDiscount,
@@ -420,90 +420,137 @@ const DetailSection = ({
         </div>
 
         <div>
-                {data?.isFlashDeal ? (
-                  <>
-                    {data?.isVariant && selectedVariation !== null ? (
-                      <h2 className="font-semibold relative">
-                        <span className="text-red-600 text-2xl">
-                          ৳ {selectedVariation?.flashPrice * count}
-                        </span>
-
-                        {selectedVariation?.regularPrice ==
-                        selectedVariation?.sellingPrice ? null : (
-                          <span className="line-through text-[18px] text-gray-400 ml-2">
-                            ৳ {selectedVariation?.regularPrice * count}
-                          </span>
-                        )}
-                      </h2>
-                    ) : data?.isVariant && selectedVariation == null ? (
-                      <h2 className="font-semibold relative ">
-                        <span className="text-red-600 text-2xl">
-                          ৳ {data?.variations[0].flashPrice * count}
-                        </span>
-
-                        {data?.variations[0]?.regularPrice ==
-                        data?.variations[0].flashPrice ? null : (
-                          <span className="line-through text-[18px] text-gray-400 ml-2">
-                            ৳ {data?.variations[0]?.regularPrice * count}
-                          </span>
-                        )}
-                      </h2>
-                    ) : (
-                      <h2 className="font-semibold relative ">
-                        <span className="text-red-600 text-2xl">
-                          ৳ {data?.nonVariation.flashPrice * count}
-                        </span>
-
-                        {data?.nonVariation?.regularPrice ==
-                        data?.nonVariation.flashPrice ? null : (
-                          <span className="line-through text-[18px] text-gray-400 ml-2">
-                            ৳ {data?.nonVariation?.regularPrice * count}
-                          </span>
-                        )}
-                      </h2>
-                    )}
-                  </>
-                ) : data?.isVariant && selectedVariation !== null ? (
-                  <h2 className="font-semibold relative ">
-                    <span className="text-red-600 text-2xl">
-                      ৳ {selectedVariation?.sellingPrice * count}
+          {data?.isFlashDeal ? (
+            <>
+              {data?.isVariant && selectedVariation !== null ? (
+                <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-1">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Regular Price:</span>
+                      <span className="text-lg text-gray-500 line-through">৳{selectedVariation?.regularPrice * count}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Discount Price:</span>
+                      <span className="text-2xl font-bold text-black">৳{selectedVariation?.flashPrice * count}</span>
+                      <span className="bg-red-500 text-white text-xs font-medium px-2.5 py-1 rounded">Save ৳{(selectedVariation?.regularPrice - selectedVariation?.flashPrice) * count}</span>
+                    </div>
+                  </div>
+                </div>
+              ) : data?.isVariant && selectedVariation == null ? (
+                <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-1">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Regular Price:</span>
+                      <span className="text-lg text-gray-500 line-through">৳{data?.variations[0]?.regularPrice * count}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Discount Price:</span>
+                      <span className="text-2xl font-bold text-black">৳{data?.variations[0].flashPrice * count}</span>
+                      <span className="bg-red-500 text-white text-xs font-medium px-2.5 py-1 rounded">Save ৳{(data?.variations[0]?.regularPrice - data?.variations[0].flashPrice) * count}</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-1">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Regular Price:</span>
+                      <span className="text-lg text-gray-500 line-through">৳{data?.nonVariation?.regularPrice * count}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Discount Price:</span>
+                      <span className="text-2xl font-bold text-black">৳{data?.nonVariation?.flashPrice * count}</span>
+                      <span className="bg-red-500 text-white text-xs font-medium px-2.5 py-1 rounded">Save ৳{(data?.nonVariation?.regularPrice - data?.nonVariation?.flashPrice) * count}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          ) : data?.isVariant && selectedVariation !== null ? (
+            <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-1">
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-600">Regular Price:</span>
+                  <span className="text-lg text-gray-500 line-through">৳{selectedVariation?.regularPrice * count}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-600">Discount Price:</span>
+                  <span className="text-2xl font-bold text-black">৳{selectedVariation?.sellingPrice * count}</span>
+                  {selectedVariation?.regularPrice !== selectedVariation?.sellingPrice && (
+                    <span className="bg-red-500 text-white text-xs font-medium px-2.5 py-1 rounded">
+                      Save ৳{(selectedVariation?.regularPrice - selectedVariation?.sellingPrice) * count}
                     </span>
-
-                    {selectedVariation?.regularPrice ==
-                    selectedVariation?.sellingPrice ? null : (
-                      <span className="line-through text-[18px] text-gray-400 ml-2">
-                        ৳ {selectedVariation?.regularPrice * count}
-                      </span>
-                    )}
-                  </h2>
-                ) : data?.isVariant && selectedVariation == null ? (
-                  <h2 className="font-semibold relative ">
-                    <span className="text-red-600 text-2xl">
-                      ৳ {data?.variations[0]?.sellingPrice * count}
-                    </span>
-
-                    {data?.variations[0]?.regularPrice ==
-                    data?.variations[0]?.sellingPrice ? null : (
-                      <span className="line-through text-[18px] text-gray-400 ml-2">
-                        ৳ {data?.variations[0]?.regularPrice * count}
-                      </span>
-                    )}
-                  </h2>
-                ) : (
-                  <h2 className="font-semibold relative ">
-                    <span className="text-red-600 text-2xl">
-                      ৳ {data?.nonVariation?.sellingPrice * count}
-                    </span>
-
-                    {data?.nonVariation?.regularPrice ==
-                    data?.nonVariation.sellingPrice ? null : (
-                      <span className="line-through text-[18px] text-gray-400 ml-2">
-                        ৳ {data?.nonVariation?.regularPrice * count}
-                      </span>
-                    )}
-                  </h2>
-                )}
+                  )}
+                </div>
               </div>
+              {selectedVariation?.regularPrice !==
+                selectedVariation?.sellingPrice && (
+                <span className="text-sm text-gray-600">
+                  {Math.round(
+                    ((selectedVariation?.regularPrice -
+                      selectedVariation?.sellingPrice) /
+                      selectedVariation?.regularPrice) *
+                      100
+                  )}
+                  % OFF
+                </span>
+              )}
+            </div>
+          ) : data?.isVariant && selectedVariation == null ? (
+            <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-1">
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-600">Regular Price:</span>
+                  <span className="text-lg text-gray-500 line-through">৳{data?.variations[0]?.regularPrice * count}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-600">Discount Price:</span>
+                  <span className="text-2xl font-bold text-black">৳{data?.variations[0]?.sellingPrice * count}</span>
+                  {data?.variations[0]?.regularPrice !== data?.variations[0]?.sellingPrice && (
+                    <span className="bg-red-500 text-white text-xs font-medium px-2.5 py-1 rounded">
+                      Save ৳{(data?.variations[0]?.regularPrice - data?.variations[0]?.sellingPrice) * count}
+                    </span>
+                  )}
+                </div>
+              </div>
+              {data?.variations[0]?.regularPrice !==
+                data?.variations[0]?.sellingPrice && (
+                <span className="text-sm text-gray-600">
+                  {Math.round(
+                    ((data?.variations[0]?.regularPrice -
+                      data?.variations[0]?.sellingPrice) /
+                      data?.variations[0]?.regularPrice) *
+                      100
+                  )}
+                  % OFF
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="flex flex-col space-y-2">
+              <div className="flex items-center space-x-3">
+                <div className="flex items-baseline gap-2">
+                  <p className="text-gray-500 line-through text-lg">৳{data?.nonVariation.regularPrice * count}</p>
+                  <p className="text-2xl font-bold">৳{data?.nonVariation.sellingPrice * count}</p>
+                  {data?.nonVariation.regularPrice !== data?.nonVariation.sellingPrice && (
+                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">
+                      Save ৳{(data?.nonVariation.regularPrice - data?.nonVariation.sellingPrice) * count}
+                    </span>
+                  )}
+                </div>
+              </div>
+              {data?.nonVariation.regularPrice !== data?.nonVariation.sellingPrice && (
+                <span className="text-sm text-gray-600">
+                  {Math.round(
+                    ((data?.nonVariation.regularPrice - data?.nonVariation.sellingPrice) /
+                      data?.nonVariation.regularPrice) *
+                      100
+                  )}% OFF
+                </span>
+              )}
+            </div>
+          )}
+        </div>
 
         {/*  */}
         <div className="mb-4 shadow-sm p-2 rounded-md  border-t">
@@ -518,7 +565,7 @@ const DetailSection = ({
           <span
             className="text-black 2xl:block xl:block lg:block md:block sm:block hidden "
             dangerouslySetInnerHTML={{
-              __html: data?.short_description
+              __html: data?.short_description,
             }}
           ></span>
         </div>
@@ -533,8 +580,6 @@ const DetailSection = ({
         <div className="shadow-md rounded-md  p-3 border-t lg:flex">
           <div>
             <div className=" my-3 xls:my-0 xms:my-0 xs:my-0 sm:my-2 xls:py-2 xms:py-2 xs:py-2 xls:flex xms:flex xs:flex justify-between flex-col  xls:border-t xms:border-t xs:border-t xls:border-b xms:border-b xs:border-b border-[#d1d5db]">
-            
-
               {/*  */}
 
               {showingVariantList?.map((item, Mainindex) => (
