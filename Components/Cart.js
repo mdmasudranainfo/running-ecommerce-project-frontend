@@ -8,6 +8,7 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import { TiDeleteOutline } from "react-icons/ti";
 import { toast } from "react-toastify";
 import EmptyCart from "../Components/EmptyCart.json";
+import { trackAddToCart, trackPurchase } from "@/lib/fbCAPI";
 
 const Cart = ({ cartItems, setCartItems }) => {
   const { isCartOpen, setIsCartOpen, renderMe, setIsRenderMe, token } =
@@ -18,6 +19,11 @@ const Cart = ({ cartItems, setCartItems }) => {
   const handleClick = () => setIsCartOpen(false);
 
   const handleRoute = () => {
+    // Track purchase event when proceeding to checkout
+    const totalValue = cartItems.reduce((sum, item) => sum + (item.sellingPrice * item.quantity), 0);
+    const contentIds = cartItems.map(item => item._id);
+    trackPurchase(contentIds, totalValue, 'BDT');
+    
     router.push(`/checkout`);
     setIsCartOpen(false);
   };
@@ -38,6 +44,7 @@ const Cart = ({ cartItems, setCartItems }) => {
 
   const AddCart = (index) => {
     const updatedItems = [...cartItems];
+    const item = updatedItems[index];
     updatedItems[index].quantity += 1;
     setCartItems(updatedItems);
     setCookie(null, "lazmaCart", JSON.stringify(updatedItems), {
@@ -45,6 +52,9 @@ const Cart = ({ cartItems, setCartItems }) => {
       path: "/",
     });
     setIsRenderMe(!renderMe);
+
+    // Track add to cart event
+    trackAddToCart([item._id], item.name, item.sellingPrice, 'BDT');
   };
 
   const DeleteItem = (index) => {

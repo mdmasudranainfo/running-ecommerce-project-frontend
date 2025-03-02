@@ -140,7 +140,7 @@ const Footer = () => {
                   {data?.subTitle}
                 </p>
                 <div className="flex items-center gap-1">
-                  <p>Follow Us:</p>
+                  <p className="text-white">Follow Us:</p>
 
                   <div className="flex space-x-3 py-3">
                     <Link href={`https://wa.me/${data?.phone}`} target="_blank">

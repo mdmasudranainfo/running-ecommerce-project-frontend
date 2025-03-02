@@ -208,6 +208,14 @@ const Checkout = () => {
           maxAge: 30 * 24 * 60 * 60,
           path: "/",
         });
+
+        // Track purchase event with Facebook CAPI
+        const productIds = cartItems.map(item => item._id);
+        const orderTotal = promoDiscount ? 
+          total + Number(deliveryFee) - Number(promoDiscount) : 
+          total + Number(deliveryFee);
+        trackPurchase(productIds, orderTotal, 'BDT', res?.data?._id);
+
         toast(res?.message);
         setIsLoading(false);
         setCartItems([]);

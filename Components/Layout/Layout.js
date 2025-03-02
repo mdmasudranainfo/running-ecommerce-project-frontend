@@ -17,6 +17,7 @@ import CountUp from "react-countup";
 import request from "@/lib/request";
 import Head from "next/head";
 import parse from "html-react-parser";
+import { trackPageView } from "@/lib/fbCAPI";
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -82,6 +83,8 @@ const Layout = ({ children }) => {
     if (router?.pathname !== "/products/[slug]") {
       setIsScrolled(true);
     }
+    // Track page view with CAPI
+    trackPageView();
   }, [router?.pathname]);
 
   /* const pagesWithoutSideCategory = ["/landing/[slug]"];
